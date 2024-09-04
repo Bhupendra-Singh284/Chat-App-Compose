@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.2"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packaging {
         resources {
@@ -55,10 +55,14 @@ android {
 dependencies {
 
     //firebase BOM
-    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
 
     //firebase services
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("androidx.credentials:credentials:1.2.2")
+    implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
 
     //coil
     implementation("io.coil-kt:coil-compose:2.7.0")
@@ -67,13 +71,17 @@ dependencies {
     val navVersion = "2.7.7"
     implementation("androidx.navigation:navigation-compose:$navVersion")
 
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+
     //dagger hilt
-    implementation("com.google.dagger:hilt-android:2.49")
-    implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
+    implementation("com.google.dagger:hilt-android:2.52")
+    //implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-    implementation("androidx.hilt:hilt-work:1.2.0")
-    ksp("com.google.dagger:dagger-compiler:2.49") // Dagger compiler
-    ksp("com.google.dagger:hilt-compiler:2.49")
+    //implementation("androidx.hilt:hilt-work:1.2.0")
+    ksp("com.google.dagger:dagger-compiler:2.52") // Dagger compiler
+    ksp("com.google.dagger:hilt-compiler:2.52")
 
     //datastore
     implementation("androidx.datastore:datastore-preferences:1.1.1")
@@ -94,7 +102,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.08.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

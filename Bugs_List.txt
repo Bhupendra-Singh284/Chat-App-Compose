@@ -1,0 +1,2 @@
+1. If user rotates the screen during loading in auth screens screen wil get stuck unless rerotated 2-3 times again
+2. If user has already made a google firebase account he wil not be able to make a email password account
